@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router";
 import Home from "./components/Home";
+import Navbar from "./components/Header";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [populars, setPopulars] = useState([]);
@@ -16,9 +18,11 @@ const App = () => {
 
   return (
     <>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home populars={populars} />} />
       </Routes>
+      <Footer />
     </>
   );
 };
