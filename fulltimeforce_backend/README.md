@@ -13,6 +13,11 @@ The database structure is the following:
 name: movies
 table name: movie_information (id:number, title:string, overview:string, poster_path:string, release_date:string)
 
+Constraints:
+
+You must have a table with the structure mentioned above called movie_information.
+This table should be part of a public schema database. You can set up your database configuration on: src\app.module.ts
+
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
