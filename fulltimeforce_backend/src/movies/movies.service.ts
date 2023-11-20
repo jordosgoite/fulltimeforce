@@ -8,22 +8,26 @@ import { movie_information } from './entities/movie_information.entity';
 export class MoviesService {
   constructor(
     @InjectRepository(movie_information)
-    private readonly moviesRepository: Repository<movie_information>,
+    private moviesRepository: Repository<movie_information>,
   ) {}
-  createMovie(createMoviesDto: CreateMoviesDto): Promise<movie_information> {
+  async createMovie(
+    createMoviesDto: CreateMoviesDto,
+  ): Promise<movie_information> {
     const movies: movie_information = new movie_information();
+    console.log('this is createMovieDTO', createMoviesDto.id);
+    movies.id = createMoviesDto.id;
     movies.title = createMoviesDto.title;
     movies.poster_path = createMoviesDto.poster_path;
     movies.overview = createMoviesDto.overview;
     movies.release_date = createMoviesDto.release_date;
-    return this.moviesRepository.save(movies);
+    return await this.moviesRepository.save(movies);
   }
 
   findAllMovies(): Promise<movie_information[]> {
     return this.moviesRepository.find();
   }
 
-  findOne(id: string): Promise<movie_information> {
+  findOne(id: number): Promise<movie_information> {
     return this.moviesRepository.findOne({ where: { id: id } });
   }
 

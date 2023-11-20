@@ -1,9 +1,9 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryColumn } from 'typeorm';
 
 @Entity({ name: 'movie_information', synchronize: false })
 export class movie_information {
-  @PrimaryGeneratedColumn()
-  id: string;
+  @PrimaryColumn()
+  id: number;
 
   @Column({ type: 'varchar', length: 15 })
   title: string;

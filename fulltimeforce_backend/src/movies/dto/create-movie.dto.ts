@@ -1,20 +1,24 @@
-import { IsNotEmpty, IsString, MinLength } from 'class-validator';
+//import { IsNotEmpty, IsString, MinLength } from 'class-validator';
 
 export class CreateMoviesDto {
-  @IsString()
+  /*   @IsNotEmpty()
+  @IsString() */
+  id: number;
+
+  /*   @IsString()
   @MinLength(2, { message: 'Title must have atleast 2 characters.' })
-  @IsNotEmpty()
+  @IsNotEmpty() */
   title: string;
 
-  @IsNotEmpty()
-  @IsString()
+  /*   @IsNotEmpty()
+  @IsString() */
   poster_path: string;
 
-  @IsNotEmpty()
-  @IsString()
+  /*   @IsNotEmpty()
+  @IsString() */
   overview: string;
 
-  @IsNotEmpty()
-  @IsString()
+  /*   @IsNotEmpty()
+  @IsString() */
   release_date: string;
 }
