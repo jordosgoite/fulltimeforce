@@ -21,7 +21,7 @@ const Navbar = () => {
         />
       </Link>
       <Typography gutterBottom variant="h6">
-        User: Juan Ordosgoite
+        User: {localStorage.getItem("userName")}
       </Typography>
     </Box>
   );

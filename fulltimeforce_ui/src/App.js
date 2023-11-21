@@ -8,12 +8,9 @@ import MovieDetails from "./components/MovieDetails";
 
 const App = () => {
   const [populars, setPopulars] = useState([]);
-
   useEffect(() => {
     axios
-      .get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=ebc19cd915e044f83948e528b44d4d98&language=en-US&page=1`
-      )
+      .get(process.env.REACT_APP_TMDB_URL_ALL_MOVIES)
       .then((res) => setPopulars(res.data.results));
   }, []);
 

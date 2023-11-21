@@ -1,27 +1,24 @@
 import React, { Suspense, useEffect, useState } from "react";
-import Details from "../common/Details";
+//import Details from "";
 import { useParams } from "react-router";
 import axios from "axios";
-
+import LoadingSpinner from "../common/LoadingSpinner";
+const Details = React.lazy(() => import("../common/Details"));
 const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState({});
-  
+
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/movies/${movieId}`)
+      .get(`${process.env.REACT_APP_MOVIE_DETAILS_URL}${movieId}`)
       .then((res) => setMovie(res.data));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <>
-      {movie && (
-        <Suspense fallback={<div>Loading...</div>}>
-          <Details data={movie} />
-        </Suspense>
-      )}
-    </>
+    <Suspense fallback={<LoadingSpinner />}>
+      <Details data={movie} />
+    </Suspense>
   );
 };
 

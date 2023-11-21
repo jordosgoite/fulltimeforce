@@ -17,6 +17,8 @@ Constraints:
 
 You must have a table with the structure mentioned above called movie_information.
 This table should be part of a public schema database. You can set up your database configuration on: src\app.module.ts
+For this project, PostgreSQL 11 was used to build the database.
+A database backup is located in the backend root folder - db_movies.sql. It can be imported using postgreSQL commands (or PgAdmin).
 
 ## Description
 

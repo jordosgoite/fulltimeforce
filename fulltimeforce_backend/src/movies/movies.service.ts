@@ -14,7 +14,6 @@ export class MoviesService {
     createMoviesDto: CreateMoviesDto,
   ): Promise<movie_information> {
     const movies: movie_information = new movie_information();
-    console.log('this is createMovieDTO', createMoviesDto.id);
     movies.id = createMoviesDto.id;
     movies.title = createMoviesDto.title;
     movies.poster_path = createMoviesDto.poster_path;
@@ -31,7 +30,7 @@ export class MoviesService {
     return this.moviesRepository.findOne({ where: { id: id } });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} movie`;
+  removeUser(id: number): Promise<{ affected?: number }> {
+    return this.moviesRepository.delete(id);
   }
 }

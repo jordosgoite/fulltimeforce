@@ -8,6 +8,7 @@ import {
   faInstagram,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
+import { facebookUrl, githubUrl, instagramURL, linkedinUrl } from "../common/PersonalData";
 
 const Footer = () => {
   const customHeight = { height: "30px" };
@@ -21,7 +22,7 @@ const Footer = () => {
         padding={1}
       >
         <Link
-          href="https://www.facebook.com/juan.ordosgoite.9/"
+          href={facebookUrl}
           color="inherit"
           padding={1}
         >
@@ -29,21 +30,21 @@ const Footer = () => {
         </Link>
 
         <Link
-          href="https://www.instagram.com/juanxv12"
+          href={instagramURL}
           color="inherit"
           padding={1}
         >
           <FontAwesomeIcon icon={faInstagram} style={customHeight} />
         </Link>
         <Link
-          href="https://github.com/jordosgoite/"
+          href={githubUrl}
           color="inherit"
           padding={1}
         >
           <FontAwesomeIcon icon={faGithub} style={customHeight} />
         </Link>
         <Link
-          href="https://www.linkedin.com/in/juan-ordosgoite-1a492567/"
+          href={linkedinUrl}
           color="inherit"
           padding={1}
         >

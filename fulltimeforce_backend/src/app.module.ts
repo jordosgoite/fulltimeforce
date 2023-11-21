@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MoviesModule } from './movies/movies.module';
 import { movie_information } from './movies/entities/movie_information.entity';
-
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -18,6 +18,7 @@ import { movie_information } from './movies/entities/movie_information.entity';
       synchronize: true,
       logging: true,
     }),
+    ConfigModule.forRoot(),
     MoviesModule,
   ],
   controllers: [AppController],
